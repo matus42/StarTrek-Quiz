@@ -64,3 +64,9 @@ body {
   display: block;
   display: none;
 }
+.correct{
+  background: #9fddba;
+}
+.incorrect{
+  background: #b96573;
+}
