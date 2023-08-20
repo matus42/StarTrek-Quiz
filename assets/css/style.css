@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Heebo', sans-serif;
   box-sizing: border-box;
 }
 body {
@@ -47,7 +47,7 @@ body {
   cursor: pointer;
   transition: all 0.3s;
 }
-.btn:hover{
+.btn:hover:not([disabled]){
   background: #222;
   color: #fff;
 }
