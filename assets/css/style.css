@@ -12,6 +12,7 @@ body {
   background-attachment: fixed;
 }
 .app {
+  position: relative;
   background: #fff;
   width: 90%;
   max-width: 600px;
@@ -72,4 +73,62 @@ body {
 }
 .incorrect{
   background: #b96573;
+}
+
+
+/* welcome div styling */
+.welcome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+}
+.welcome h2{
+  font-size: 25px;
+  text-align: center;
+  color: #001e4d;
+  font-weight: 600;
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+}
+.welcome p{
+  font-size: 16px;
+  color: #001e4d;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.welcome ul{
+  margin-bottom: 20px;
+}
+.welcome li {
+  font-size: 16px;
+  color: #001e4d;
+  font-weight: 400;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+#username {
+  padding: 10px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+#start-btn {
+  background: #001e4d;
+  color: #fff;
+  font-weight: 500;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#start-btn:hover {
+  background: #003480;  /* Slightly darker shade for hover effect */
 }
