@@ -94,6 +94,11 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
+const usernameInput = document.getElementById("username");
+const welcomeDiv = document.querySelector(".welcome");
+const startButton = document.getElementById("start-btn");
+
+
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -148,8 +153,9 @@ function selectAnswer(e){
 }
 
 function showScore(){
+  let username = document.getElementById("username").value;
   resetState();
-  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  questionElement.innerHTML = `${username}, You scored ${score} out of ${questions.length}!`;
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
@@ -170,6 +176,20 @@ nextButton.addEventListener("click", ()=>{
     startQuiz();
   }
 })
+
+startButton.addEventListener("click", () => {
+  if (!usernameInput.value.trim()) { // Check if username input is empty or just whitespace
+      alert("You need to enter a username!");
+      return; // Exit the function
+  }
+  
+  // If username is provided, hide the welcome div
+  welcomeDiv.style.display = "none";
+  
+  // Call startQuiz function
+  startQuiz();
+});
+
 
 startQuiz();
 
