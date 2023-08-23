@@ -98,6 +98,8 @@ const usernameInput = document.getElementById("username");
 const welcomeDiv = document.querySelector(".welcome");
 const startButton = document.getElementById("start-btn");
 
+let sec = 30;
+let time;
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -109,8 +111,33 @@ function startQuiz(){
   showQuestion();
 }
 
+function myTimer(){
+  console.log("Timer ticked"); // debugging
+  document.getElementById('timer').innerHTML = sec + " sec left";
+  sec--;
+  if (sec == -1){
+    handleTimeOut();
+  }
+}
+
+function handleTimeOut(){
+  clearInterval(time); // Clear the timer
+
+  // Mark the current question as incorrect
+  Array.from(answerButtons.children).forEach(button => {
+    button.disabled = true;
+    if(button.dataset.correct === "true"){
+      button.classList.add("correct");
+    }
+  });
+
+  nextButton.style.display = "block";
+  alert("Time out!! :(");
+}
+
 function showQuestion(){
   resetState();
+  sec = 30;
   let currentQuestion = questions[currentQuestionIndex];
   let questionNumber = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNumber + ". " + currentQuestion.question;
@@ -125,6 +152,10 @@ function showQuestion(){
     }
     button.addEventListener("click", selectAnswer);
   });
+
+  // Reset timer for each question
+  clearInterval(time); // Clear any existing timer
+  time = setInterval(myTimer, 1000);
 }
 //removes all the previous answers
 function resetState(){
@@ -135,6 +166,7 @@ function resetState(){
 }
 
 function selectAnswer(e){
+  clearInterval(time); // Clear the timer when answer is selected
   let selectedBtn = e.target;
   let isCorrect = selectedBtn.dataset.correct === "true";
   if(isCorrect){
@@ -191,5 +223,6 @@ startButton.addEventListener("click", () => {
 });
 
 
-startQuiz();
+
+// startQuiz();
 

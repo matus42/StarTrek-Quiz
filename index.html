@@ -13,33 +13,38 @@
 
 <body>
   <div class="app">
-    <div class="welcome">
-      <h2>Welcome to Star Trek Quiz!</h2>
-      <p>Before we embark on this journey through space, here are a few rules:</p>
-      <ul>
-        <li>Each participant can only attempt each question once.</li>
-        <li>There's no going back or changing answers once selected.</li>
-        <li>Each question has a time limit of 30 seconds.</li>
-      </ul>
-      <label for="username">Enter your username</label>
-      <input type="text" id="username" placeholder="Jean-Luc Picard">
-      <button class="btn" id="start-btn">Let's Play!</button>
-    </div>
-    <h1>Startrek Next Generation Quiz</h1>
-    <div class="quiz">
-      <h2 id="question">Question goes here</h2>
-      <div id="answer-buttons">
-        <button class="btn">Answer 1</button>
-        <button class="btn">Answer 2</button>
-        <button class="btn">Answer 3</button>
-        <button class="btn">Answer 4</button>
-      </div>
-      <button id="next-btn">Next</button>
-    </div>
+    <header>
+      <h1>Star Trek Next Generation Quiz<span id="timer">30</span></h1>
+    </header>
+
+    <main>
+      <section class="welcome" aria-label="Welcome Section">
+        <h2>Welcome to Star Trek Quiz!</h2>
+        <p>Before we embark on this journey through space, here are a few rules:</p>
+        <ul>
+          <li>Each participant can only attempt each question once.</li>
+          <li>There's no going back or changing answers once selected.</li>
+          <li>Each question has a time limit of 30 seconds.</li>
+        </ul>
+        <label for="username">Enter your username</label>
+        <input type="text" id="username" placeholder="Jean-Luc Picard" aria-label="Username Input">
+        <button class="btn" id="start-btn">Let's Play!</button>
+      </section>
+
+      <section class="quiz" aria-label="Quiz Section">
+        <h2 id="question">Question goes here</h2>
+        <div id="answer-buttons" role="group" aria-label="Answer Choices">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+        </div>
+        <button id="next-btn">Next</button>
+      </section>
+    </main>
   </div>
+
   <script src="assets/js/script.js"></script>
 </body>
 
 </html>
-
-<!-- ked sa toto zmaze tak si naspat kde si chcel byt -->
