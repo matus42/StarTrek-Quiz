@@ -14,7 +14,7 @@
 <body>
   <div class="app">
     <header>
-      <h1>Star Trek Next Generation Quiz<span id="timer">30</span></h1>
+      <h1>Star Trek Next Generation Quiz<span id="timer">15 sec left</span></h1>
     </header>
 
     <main>
@@ -24,7 +24,7 @@
         <ul>
           <li>Each participant can only attempt each question once.</li>
           <li>There's no going back or changing answers once selected.</li>
-          <li>Each question has a time limit of 30 seconds.</li>
+          <li>Each question has a time limit of 15 seconds.</li>
         </ul>
         <label for="username">Enter your username</label>
         <input type="text" id="username" placeholder="Jean-Luc Picard" aria-label="Username Input">
@@ -43,8 +43,23 @@
       </section>
     </main>
   </div>
+  <div id="username-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <p>Please enter your username!</p>
+    </div>
+  </div>
+
+  <div id="timeout-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <p>Time's Up!</p>
+    </div>
+  </div>
 
   <script src="assets/js/script.js"></script>
 </body>
 
 </html>
+
+<!-- usernameModal -->
