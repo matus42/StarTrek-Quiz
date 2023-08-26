@@ -1,95 +1,4 @@
-const questions = [
-  {
-    question: "Who is the captain of the U.S.S. Enterprise-D in 'Star Trek: The Next Generation'?",
-    answer: [
-      { "text": "Captain James T. Kirk", "correct": false },
-      { "text": "Captain Jean-Luc Picard", "correct": true },
-      { "text": "Captain Benjamin Sisko", "correct": false },
-      { "text": "Captain Jonathan Archer", "correct": false }
-    ]
-  },
-  {
-    question: "Which android serves as the second officer on the U.S.S. Enterprise-D?",
-    answer: [
-      { "text": "Data", "correct": true },
-      { "text": "Spock", "correct": false },
-      { "text": "Odo", "correct": false },
-      { "text": "Tuvok", "correct": false }
-    ]
-  },
-  {
-    question: "Who is the ship's counselor?",
-    answer: [
-      { "text": "Beverly Crusher", "correct": false },
-      { "text": "B'Elanna Torres", "correct": false },
-      { "text": "Deanna Troi", "correct": true },
-      { "text": "Tasha Yar", "correct": false }
-    ]
-  },
-  {
-    question: "Which species is known for saying 'Resistance is futile'?",
-    answer: [
-      { "text": "Klingon", "correct": false },
-      { "text": "Ferengi", "correct": false },
-      { "text": "Romulan", "correct": false },
-      { "text": "Borg", "correct": true }
-    ]
-  },
-  {
-    question: "Who is the Klingon officer serving on the U.S.S. Enterprise-D?",
-    answer: [
-      { "text": "Quark", "correct": false },
-      { "text": "Worf", "correct": true },
-      { "text": "Chakotay", "correct": false },
-      { "text": "Neelix", "correct": false }
-    ]
-  },
-  {
-    question: "What is the name of Captain Picard's ready room beverage of choice?",
-    answer: [
-      { "text": "Iced tea", "correct": false },
-      { "text": "Romulan ale", "correct": false },
-      { "text": "Saurian brandy", "correct": false },
-      { "text": "Earl Grey tea", "correct": true }
-    ]
-  },
-  {
-    question: "Which crew member is from the 20th century and was frozen until discovered by the Enterprise?",
-    answer: [
-      { "text": "Geordi La Forge", "correct": false },
-      { "text": "Miles O'Brien", "correct": false },
-      { "text": "Wesley Crusher", "correct": false },
-      { "text": "Montgomery Scott", "correct": true }
-    ]
-  },
-  {
-    question: "What is the name of the Betazoid ambassador and mother of Deanna Troi?",
-    answer: [
-      { "text": "Kes", "correct": false },
-      { "text": "Lwaxana Troi", "correct": true },
-      { "text": "K'Ehleyr", "correct": false },
-      { "text": "Ro Laren", "correct": false }
-    ]
-  },
-  {
-    question: "Who designed the Enterprise-D's warp core?",
-    answer: [
-      { "text": "Dr. Leah Brahms", "correct": true },
-      { "text": "Guinan", "correct": false },
-      { "text": "Q", "correct": false },
-      { "text": "Dr. Julian Bashir", "correct": false }
-    ]
-  },
-  {
-    question: "Which omnipotent being frequently tests and torments the Enterprise crew?",
-    answer: [
-      { "text": "Sarek", "correct": false },
-      { "text": "Gowron", "correct": false },
-      { "text": "Q", "correct": true },
-      { "text": "Locutus", "correct": false }
-    ]
-  }
-];
+import { questions } from "./questions.js";
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
@@ -100,12 +9,21 @@ const startButton = document.getElementById("start-btn");
 
 const modal = document.getElementById("timeout-modal");
 const closeModal = document.querySelector(".modal-close");
+const usernameModal = document.getElementById("username-modal");
 
-let sec;
-let time;
+let sec = null;
+let time = null;
 
 let currentQuestionIndex = 0;
 let score = 0;
+
+window.onclick = function (event) {
+  if (event.target === modal) {
+    closeTimeoutModal();
+  } else if (event.target === usernameModal) {
+    closeUsernameModal();
+  }
+};
 
 // Function to close the modal
 function closeTimeoutModal() {
@@ -135,8 +53,6 @@ function myTimer() {
 
 function handleTimeOut() {
   clearInterval(time); // Clear the timer
-
-  // document.getElementById("timeout-modal").style.display = "block"
   modal.style.display = "block";
   // Mark the current question as incorrect
   Array.from(answerButtons.children).forEach(button => {
@@ -145,17 +61,12 @@ function handleTimeOut() {
       button.classList.add("correct");
     }
   });
-
   nextButton.style.display = "block";
-  // alert("Time out!! :(");
-
 }
 
 function showQuestion() {
   resetState();
   sec = 15;
-  clearInterval(time); // Clear any existing timer
-  // time = setInterval(myTimer, 1000); // Start a new timer
   let currentQuestion = questions[currentQuestionIndex];
   let questionNumber = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNumber + ". " + currentQuestion.question;
@@ -170,9 +81,6 @@ function showQuestion() {
     }
     button.addEventListener("click", selectAnswer);
   });
-
-  // Reset timer for each question
-  clearInterval(time); // Clear any existing timer
   time = setInterval(myTimer, 1000);
 }
 //removes all the previous answers
@@ -184,7 +92,7 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-  clearInterval(time); // Clear the timer when answer is selected
+  clearInterval(time); // stop the timer when answer is selected
   let selectedBtn = e.target;
   let isCorrect = selectedBtn.dataset.correct === "true";
   if (isCorrect) {
@@ -206,6 +114,7 @@ function showScore() {
   let username = document.getElementById("username").value;
   resetState();
   questionElement.innerHTML = `${username}, You scored ${score} out of ${questions.length}!`;
+  document.getElementById('timer').innerHTML = "Congratulation!";
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
@@ -219,18 +128,27 @@ function handleNextButton() {
   }
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target === modal) {
-    closeTimeoutModal();
-  }
-}
-
-// Add event listener to close button of timeout modal
 const timeoutModalClose = document.querySelector('#timeout-modal .modal-close');
 timeoutModalClose.addEventListener('click', () => {
   closeTimeoutModal();
 });
+
+
+
+// Function to close the username modal
+function closeUsernameModal() {
+  const usernameModal = document.getElementById("username-modal");
+  usernameModal.style.display = "none";
+}
+
+// Add event listener to username-modal's close button
+const usernameModalClose = document.querySelector('#username-modal .modal-close');
+usernameModalClose.addEventListener('click', () => {
+  closeUsernameModal();
+});
+
+
+
 
 nextButton.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
@@ -248,17 +166,9 @@ startButton.addEventListener("click", () => {
 
   // If username is provided, hide the welcome div
   welcomeDiv.style.display = "none";
-  document.getElementById("username-modal").style.display = "none";
+  usernameModal.style.display = "none";
   // Call startQuiz function
   startQuiz();
-});
-
-document.getElementsByClassName("modal-close")[0].addEventListener("click", function () {
-  document.getElementById("timeout-modal").style.display = "none";
-});
-
-document.querySelector("#username-modal .modal-close").addEventListener("click", function () {
-  document.getElementById("username-modal").style.display = "none";
 });
 
 
