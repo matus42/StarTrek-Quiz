@@ -54,12 +54,12 @@ export const questions = [
     ]
   },
   {
-    question: "Which crew member is from the 20th century and was frozen until discovered by the Enterprise?",
+    question: "In the episode 'Darmok,' the Enterprise encounters an alien species that communicates through metaphor. What is the name of this species?",
     answer: [
-      { "text": "Geordi La Forge", "correct": false },
-      { "text": "Miles O'Brien", "correct": false },
-      { "text": "Wesley Crusher", "correct": false },
-      { "text": "Montgomery Scott", "correct": true }
+      { "text": "Tamarian", "correct": true },
+      { "text": "Breen", "correct": false },
+      { "text": "Gorn", "correct": false },
+      { "text": "Andorian", "correct": false }
     ]
   },
   {
