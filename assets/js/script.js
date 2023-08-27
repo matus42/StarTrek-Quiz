@@ -26,22 +26,6 @@ window.onclick = function (event) {
   }
 };
 
-/**
- * Closes the timeout modal and proceeds to the next question or shows the score
- */
-function closeTimeoutModal() {
-  modal.style.display = "none";
-  handleNextButton(); 
-}
-
-// Event listener for the close button in the timeout modal
-closeModal.onclick = function () {
-  closeTimeoutModal();
-}
-
-/**
- * Starts the quiz by resetting variables and displaying the first question
- */
 function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
@@ -163,6 +147,19 @@ function handleNextButton() {
   } else {
     showScore();
   }
+}
+
+/**
+ * Closes the timeout modal and proceeds to the next question or shows the score
+ */
+function closeTimeoutModal() {
+  modal.style.display = "none";
+  handleNextButton(); 
+}
+
+// Event listener for the close button in the timeout modal
+closeModal.onclick = function () {
+  closeTimeoutModal();
 }
 
 // Event listener for the close button in the timeout modal
