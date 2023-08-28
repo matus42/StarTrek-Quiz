@@ -30,7 +30,7 @@ function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
-  showQuestion();
+  showQuestion();document.querySelector("#quit-btn").style.display = "none"
 }
 
 /**
@@ -90,6 +90,7 @@ function showQuestion() {
  */
 function resetState() {
   nextButton.style.display = "none";
+  document.querySelector("#quit-btn").style.display = "none"
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
@@ -128,6 +129,7 @@ function showScore() {
   document.querySelector('#timer').innerHTML = "Congratulation!";
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
+  document.querySelector("#quit-btn").style.display = "block"
 }
 
 /**
@@ -185,7 +187,7 @@ usernameModalClose.addEventListener('click', () => {
 // Event listener for the next button
 nextButton.addEventListener("click", () => {
   handleNextButton();
-})
+});
 
 startButton.addEventListener("click", () => {
   if (!usernameInput.value.trim()) {
@@ -197,4 +199,7 @@ startButton.addEventListener("click", () => {
   startQuiz();
 });
 
+document.querySelector("#quit-btn").addEventListener('click', () => {
+  document.querySelector("#game-box").style.display = 'none'
+});
 

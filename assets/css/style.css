@@ -23,6 +23,15 @@ body {
   border-radius: 10px;
   padding: 30px;
 }
+#quit-box {
+  position: relative;
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 0;
+  border-radius: 10px;
+  padding: 30px;
+}
 /* Header within the game box */
 .game-box h1 {
   font-size: 25px;
@@ -66,7 +75,7 @@ body {
   cursor: no-drop
 }
 /* Next Button styling */
-#next-btn{
+#next-btn, #quit-btn{
   background: #001e4d;
   color: #fff;
   font-weight: 500;
@@ -77,6 +86,10 @@ body {
   border-radius: 4px;
   cursor: pointer;
   display: none;
+}
+
+#btn-box{
+  display: flex;
 }
 /* Correct and incorrect button states */
 .correct{
