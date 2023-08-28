@@ -30,7 +30,12 @@ function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
-  showQuestion();document.querySelector("#quit-btn").style.display = "none"
+  showQuestion();
+  if (time === null) {
+    sec = 15;
+    time = setInterval(myTimer, 1000);
+  }
+  document.querySelector("#quit-btn").style.display = "none";
 }
 
 /**
@@ -125,8 +130,10 @@ function selectAnswer(e) {
 function showScore() {
   let username = document.querySelector("#username").value;
   resetState();
-  questionElement.innerHTML = `${username}, You scored ${score} out of ${questions.length}!`;
-  document.querySelector('#timer').innerHTML = "Congratulation!";
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!
+  <p><br><br>Thanks for playing.<br>Hopefully you enjoyed the game, just as I enjoy StarTrek.<br><br>Live Long And Prosper!</p>
+  `;
+  document.querySelector('#timer').innerHTML = `<br>Congratulation ${username}!`;
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
   document.querySelector("#quit-btn").style.display = "block"
@@ -199,7 +206,12 @@ startButton.addEventListener("click", () => {
   startQuiz();
 });
 
-document.querySelector("#quit-btn").addEventListener('click', () => {
-  document.querySelector("#game-box").style.display = 'none'
+const quitButton = document.querySelector("#quit-btn");
+quitButton.addEventListener("click", () => {
+  currentQuestionIndex = 0;
+  score = 0;
+  usernameInput.value = '';
+  welcomeDiv.style.display = "block"; 
+  resetState(); 
 });
 
