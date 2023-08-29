@@ -131,7 +131,7 @@ function showScore() {
   let username = document.querySelector("#username").value;
   resetState();
   questionElement.innerHTML = `You scored ${score} out of ${questions.length}!
-  <p><br><br>Thanks for playing.<br>Hopefully you enjoyed the game, just as I enjoy StarTrek.<br><br>Live Long And Prosper!</p>
+  <p><br><br>Thanks for playing.<br>Hopefully you enjoyed the game, just as you enjoy watching StarTrek.<br><br>Live Long And Prosper!</p>
   `;
   document.querySelector('#timer').innerHTML = `<br>Congratulation ${username}!`;
   nextButton.innerHTML = "Play Again";
