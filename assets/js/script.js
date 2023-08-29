@@ -17,7 +17,9 @@ let time = null;
 let currentQuestionIndex = 0;
 let score = 0;
 
-// Event listener for clicks on window
+/** 
+ *  Event listener for clicks on window
+ */
 window.onclick = function (event) {
   if (event.target === modal) {
     closeTimeoutModal();
@@ -26,6 +28,9 @@ window.onclick = function (event) {
   }
 };
 
+/**
+ * Start the quiz by initializing the game state and showing the first question.
+ */
 function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
@@ -53,7 +58,7 @@ function myTimer() {
  * Handles the timeout event by displaying the modal and marking incorrect answer
  */
 function handleTimeOut() {
-  clearInterval(time); 
+  clearInterval(time);
   modal.style.display = "block";
   Array.from(answerButtons.children).forEach(button => {
     button.disabled = true;
@@ -106,7 +111,7 @@ function resetState() {
  * @param {Object} e - The event object representing the button click.
  */
 function selectAnswer(e) {
-  clearInterval(time); 
+  clearInterval(time);
   let selectedBtn = e.target;
   let isCorrect = selectedBtn.dataset.correct === "true";
   if (isCorrect) {
@@ -163,15 +168,19 @@ function handleNextButton() {
  */
 function closeTimeoutModal() {
   modal.style.display = "none";
-  handleNextButton(); 
+  handleNextButton();
 }
 
-// Event listener for the close button in the timeout modal
+/**
+ * Event listener for the close button in the timeout modal
+ */
 closeModal.onclick = function () {
   closeTimeoutModal();
 }
 
-// Event listener for the close button in the timeout modal
+/**
+ * Event listener for the close button in the timeout modal
+ */
 const timeoutModalClose = document.querySelector('#timeout-modal .modal-close');
 timeoutModalClose.addEventListener('click', () => {
   closeTimeoutModal();
@@ -191,27 +200,37 @@ usernameModalClose.addEventListener('click', () => {
   closeUsernameModal();
 });
 
-// Event listener for the next button
+/**
+ * Event listener for the next button
+ */
 nextButton.addEventListener("click", () => {
   handleNextButton();
 });
 
+/**
+ * Event handler for the start button click.
+ * If a valid username is provided, starts the quiz; otherwise, displays a modal.
+ */
 startButton.addEventListener("click", () => {
   if (!usernameInput.value.trim()) {
     document.querySelector("#username-modal").style.display = "block";
-    return; 
+    return;
   }
   welcomeDiv.style.display = "none";
   usernameModal.style.display = "none";
   startQuiz();
 });
 
+/**
+ * Event handler for the quit button click.
+ * Resets the game state, clears the username input, displays the welcome div, and resets the answer buttons.
+ */
 const quitButton = document.querySelector("#quit-btn");
 quitButton.addEventListener("click", () => {
   currentQuestionIndex = 0;
   score = 0;
   usernameInput.value = '';
-  welcomeDiv.style.display = "block"; 
-  resetState(); 
+  welcomeDiv.style.display = "block";
+  resetState();
 });
 
