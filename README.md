@@ -1,6 +1,6 @@
 # **Star Trek: The Next Generation Quiz**
 ## **Site Overview**
-From my early days, I've been a massive Star Trek enthusiast, especially when it comes to the Next Generation series with the incredible Patrick Stewart. This love for Star Trek might seem unrelated, but it's what sparked my journey into the world of logic and coding. 
+Since my early days, I've been an avid Star Trek enthusiast, particularly drawn to the Next Generation series featuring the incredible Patrick Stewart. This passion for Star Trek might not seem directly related, but it's what ignited my journey into the world of logic and coding. 
 
 The Star Trek: The Next Generation Quiz is a fun and interactive web-based quiz application where you can test your knowledge about the iconic Star Trek series. The quiz is designed to challenge both casual fans and Star Trek aficionados.
 
@@ -50,7 +50,6 @@ The Star Trek: The Next Generation Quiz is a fun and interactive web-based quiz 
 
 * [Credits](#Credits) 
   * [Content](#Content)
-    * [Full Disclaimer](#Full-Disclaimer)
   * [Media](#Media)
   * [Code Help](#Code-Help)
   * [Acknowledgments](#Acknowledgments)
@@ -61,7 +60,7 @@ This project aims to provide a fun and interactive quiz game centered around the
 
 ### **Targeted Audience**
 
-The primary goal is to create an engaging and visually pleasing quiz game that tests users' knowledge about Star Trek: The Next Generation,although everyone can play and learn a bit about startrek.
+The primary focus is to create an immersive and visually pleasing quiz game that tests the knowledge of users about Star Trek: The Next Generation. However, anyone can participate and gain insights into the world of Star Trek.
 
 ### **How to Play**
 
@@ -81,8 +80,8 @@ The primary goal is to create an engaging and visually pleasing quiz game that t
 
 ### Site Aims
 
-1. To provide a simple quiz game.
-2. A simple and easy-to-find set of instructions.
+1. To provide a straightforward quiz game.
+2. To deliver uncomplicated and easily accessible instructions.
 3. To keep track of the current game scores.
 4. To give the user feedback of total score.
 
@@ -97,8 +96,8 @@ The primary goal is to create an engaging and visually pleasing quiz game that t
 
 ### Colour scheme
 
-For text i picked black colour.<br>
-For next button i put darkish blue colour:<br>
+For text, I opted for a black color.<br>
+I utilized a dark blue hue for the "Next" button:
 
 ![colour of buttons](/documentation/design/buttons-color.png)<br>
 For answer buttons i picked light green and light red:
@@ -187,7 +186,7 @@ As the quiz gains popularity and feedback from users, there are plans to expand 
 * https://ui.dev/amiresponsive - to show a website on a different devices
 * https://www.pexels.com - for my background image
 * https://icons8.com/ - for startrek favicon
-
+* https://convertio.co/jpg-webp/ - to change jpg to webp
 
 ## Deployment & Local Development
 
@@ -277,7 +276,38 @@ I ran all the tests in incognito to avoid interference from browser extensions.
 
 ### Content
 
+* The content of the project was written and designed by myself, Matus Gabris.
+* Anything I have not written or I have used the idea of is stated bellow.
+* The site has been made for educational purposes only.
 
+### Media 
+
+* Background image was taken from https://www.pexels.com/photo/milky-way-illustration-1169754/.
+
+* Favicon was taken from https://icons8.com/. 
+
+* GitHub icon was taken from https://fontawesome.com/v5/icons/github?f=brands&s=solid&sz=lg&pc=%23d2d7df
+
+
+### Code Help
+
+* [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) for help with the modals
+* Love Maths project for JavaScript functions
+* https://chat.openai.com/ for generating quiz questions and explaining me things in more detail for exmple how to debbug.
+* https://www.youtube.com/watch?v=pQr4O1OITJo&ab_channel=CodingNepal this tutorial inspired me with design and functionality
+* [Stack Overflow](https://stackoverflow.com/questions/44314897/javascript-timer-for-a-quiz) helpful tips for a quiz timer.
+
+### Acknowledgments
+
+I wish to extend gratitude to the following entities for their invaluable contributions in completing my second project:
+
+* Heartfelt appreciation to Code Institute and the supportive coding slack community.
+* My family and friends for dedicating time to engage with the quiz and provide valuable feedback.
+* My new mentor, David Bowes, for his unwavering support, encouragement, and patience.
+* My dear friend, senior developer Michal Stromajer, for taking the time to review my code and suggest improvements.
+* My partner for her patience and understanding while I immersed myself in this project.
+
+-----------
 
 
 

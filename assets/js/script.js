@@ -2,15 +2,23 @@
 import { questions } from "./questions.js";
 
 // DOM elements
+
+// Elements related to the quiz questions and answers
 const questionElement = document.querySelector("#question");
 const answerButtons = document.querySelector("#answer-buttons");
 const nextButton = document.querySelector("#next-btn");
+
+// Elements related to user interaction and input
 const usernameInput = document.querySelector("#username");
-const welcomeDiv = document.querySelector(".welcome");
 const startButton = document.querySelector("#start-btn");
-const modal = document.querySelector("#timeout-modal");
 const closeModal = document.querySelector(".modal-close");
+
+// Elements for modals
+const modal = document.querySelector("#timeout-modal");
 const usernameModal = document.querySelector("#username-modal");
+
+// Element for the welcome div
+const welcomeDiv = document.querySelector(".welcome");
 
 let sec = null;
 let time = null;
@@ -194,7 +202,9 @@ function closeUsernameModal() {
   usernameModal.style.display = "none";
 }
 
-// Event listener for the close button in the username modal
+/**
+ * Event listener for the close button in the username modal
+ */
 const usernameModalClose = document.querySelector('#username-modal .modal-close');
 usernameModalClose.addEventListener('click', () => {
   closeUsernameModal();
