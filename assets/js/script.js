@@ -160,7 +160,7 @@ function handleNextButton() {
     showQuestion();
   } else {
     showScore();
-  }
+  };
 }
 
 /**

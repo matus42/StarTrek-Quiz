@@ -1,6 +1,6 @@
 # **Star Trek: The Next Generation Quiz**
 ## **Site Overview**
-Ever since I was a child, I've been a huge fan of Star Trek, especially the Next Generation series featuring Patrick Stewart.
+From my early days, I've been a massive Star Trek enthusiast, especially when it comes to the Next Generation series with the incredible Patrick Stewart. This love for Star Trek might seem unrelated, but it's what sparked my journey into the world of logic and coding. 
 
 The Star Trek: The Next Generation Quiz is a fun and interactive web-based quiz application where you can test your knowledge about the iconic Star Trek series. The quiz is designed to challenge both casual fans and Star Trek aficionados.
 
@@ -203,11 +203,79 @@ You can find the live site here -[StarTrek Quiz](https://matus42.github.io/StarT
 
 If you'd like to contribute to the quiz or customize it for your own use, you can fork the repository to create your own copy. From there, you can make changes, additions, and improvements as you see fit.
 
+## Testing
 
+Extensive testing has been conducted to ensure the quiz functions smoothly and reliably. This includes testing on various browsers, screen sizes, and devices to ensure a consistent experience for all users.
 
+### W3C Validator
 
+**HTML Validation**
+* ![Index Page HTML](/documentation/testing/html-checker.png)
+**CSS Validation**
+* ![Style.css Jigsaw](/documentation/testing/css-check.png)
+**JSHint Validation**
+* ![JSHint](/documentation/testing/jshint.png)
 
+1. The HTML passed through W3C validator with no errors, trailing slash was removed.
+2. The CSS passed through jigsaw validator with no errors.
+3. The JavaScript passed, semicolons were added.
 
+### Solved Bugs
+
+During the development of the Star Trek: The Next Generation Quiz, I encountered and resolved a few issues to ensure a seamless user experience:
+
+#### Timer Speed Issue
+
+One challenge I faced was the timer running twice as fast as intended. After utilizing browser developer tools to investigate, I identified that I was inadvertently calling the timer function twice. This oversight was swiftly corrected, ensuring the timer ran at the intended pace of one second per tick.
+
+#### Modal Interference
+
+Another issue I tackled was the interference between the modals used in the quiz. To rectify this, I assigned unique IDs to each modal, preventing their interactions from causing unexpected behavior. This adjustment allowed each modal to function independently, providing accurate information to the user as needed.
+
+#### Button Alignment
+
+Towards the end of the quiz, I encountered an alignment issue with the buttons. They were displaying in a column layout, disrupting the visual flow. To resolve this, I encapsulated the buttons in a `div` element and applied flexbox styling. This adjustment ensured that the buttons were displayed horizontally, creating a more organized and user-friendly appearance.
+
+These troubleshooting steps demonstrate my commitment to delivering a high-quality and functional quiz experience. By promptly identifying and addressing these issues, I aimed to create a smooth and enjoyable user journey.
+
+#### Lighthouse
+
+I used Lighthouse in Chrome dev tools.
+I ran all the tests in incognito to avoid interference from browser extensions.
+
+#### Wave contrast test
+
+![Wave contrast test](/documentation/testing/wave.png)
+
+#### Desktop Test
+
+![Main Page Desktop](/documentation/testing/lighthouse-desktop.png)
+
+#### Mobile Test
+
+![Main Page Mobile](/documentation/testing/lighthouse-mobile.png)
+
+#### Full Testing
+
+* The site was tested repeatedly as it was developed. I used the google chrome developer tools console heavily through out to log values as I worked through the site and view any error codes that came up as the site was being developed.
+
+* I have tested the webpage on a number of different mobile devices available on the google chrome developer tools to make sure they where responsive.
+    * iPhone 13 Pro
+    * iPhone 12 Pro
+    * Pixel 5
+    * iPhone 8 Plus
+    * MacBook Pro 13"
+    * Samsung Galaxy S20 Ultra
+    * iPad Air
+    * iPad Mini
+    * Surface Pro 7
+    * Samsung Galaxy A51/71
+
+* I shared my site with my family and friends and didn't receive any problems.    
+
+## **Credits**
+
+### Content
 
 
 
